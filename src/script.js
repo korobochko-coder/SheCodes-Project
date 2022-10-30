@@ -65,9 +65,13 @@ let days = [
   "Saturday",
 ];
 
+function padTo2Digits(num) {
+  return String(num).padStart(2, "0");
+}
+
 let day = days[now.getDay()];
-let hour = now.getHours();
-let min = now.getMinutes();
+let hour = padTo2Digits(now.getHours());
+let min = padTo2Digits(now.getMinutes());
 
 let dt = document.querySelector("#date");
 dt.innerHTML = `${day} ${hour} : ${min}`;
