@@ -22,8 +22,22 @@
   <body>
     <div class="container">
       <div class="weather-app">
-        </div>
-        </div>
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <form class="search-form">
+            <input
+              type="text"
+              id="inputCity"
+              class="form-control"
+              placeholder="Type your city"
+            />
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-light" id="search">🔍</button>
+          </div>
+          </form>
+      </div>
+    </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
