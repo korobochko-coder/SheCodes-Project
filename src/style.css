@@ -109,3 +109,19 @@
 .creator {
   text-align: center;
 }
+
+.week {
+  background-color: #42a5f5;
+  margin: 20px;
+  padding: 0;
+  position: relative;
+  max-width: 500px;
+  border-radius: 10%;
+  left: -20px;
+}
+
+.visual,
+.day,
+.gradusy {
+  list-style: none;
+}
