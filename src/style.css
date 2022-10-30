@@ -1,0 +1,111 @@
+.container {
+  margin: 20px;
+}
+
+.weather-app {
+  border: 1px solid blue;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Raleway", sans-serif;
+}
+
+#inputCity {
+  margin-bottom: 40px;
+  margin-left: 30px;
+}
+
+#search {
+  margin-bottom: 40px;
+  margin-left: 30px;
+}
+
+#identifyLocation {
+  margin-bottom: 40px;
+  margin-left: 40px;
+}
+
+#descriptionContainer {
+  width: 140px;
+  height: 140px;
+  background: #92c8f9;
+  border-radius: 50%;
+}
+
+#description {
+  color: black;
+  font-size: 15px;
+  font-weight: 700;
+  position: relative;
+  top: -15px;
+}
+
+#temperatureContainer {
+  width: 120px;
+  height: 120px;
+  background: #92c8f9;
+  border-radius: 50%;
+  color: black;
+  font-size: large;
+}
+
+#temperature {
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 80px;
+  position: relative;
+  top: 15px;
+}
+
+.temperatureLink {
+  color: #ffffff;
+  position: relative;
+  top: -5px;
+}
+
+.placeAndTime {
+  width: 210px;
+  height: 210px;
+  background: #92c8f9;
+  border-radius: 50%;
+  list-style: none;
+  padding: 20px;
+  position: relative;
+  top: 40px;
+  font-size: 20px;
+}
+
+.dateContainer {
+  margin-top: 20px;
+}
+
+#date {
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.detailsContainer {
+  list-style: none;
+  width: 150px;
+  height: 150px;
+  background: #92c8f9;
+  border-radius: 50%;
+  position: relative;
+  top: 30px;
+  left: -40px;
+}
+
+.detailsInput {
+  position: relative;
+  top: 50px;
+  left: -10px;
+}
+
+.creator {
+  text-align: center;
+}
