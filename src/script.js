@@ -1,22 +1,21 @@
 function showTemperature(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   let cityElement = document.querySelector("#location");
-  cityElement.innerHTML = response.data.name;
+  cityElement.innerHTML = response.data.city;
   let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = response.data.weather[0].description;
+  descriptionElement.innerHTML = response.data.condition.description;
   let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = Math.round(response.data.main.humidity);
+  humidityElement.innerHTML = Math.round(response.data.temperature.humidity);
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  let iconID = response.data.weather[0].icon;
+  let iconID = response.data.condition.icon_url;
   let iconElement = document.querySelector("#icon");
-  iconElement.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${iconID}@2x.png`
-  );
-  celsiusTemperature = response.data.main.temp;
+  iconElement.setAttribute("src", iconID);
+  celsiusTemperature = response.data.temperature.current;
+  lon = response.data.coordinates.longitude;
+  lat = response.data.coordinates.latitude;
 }
 
 function defineCity(event) {
@@ -24,10 +23,26 @@ function defineCity(event) {
   let cityElement = document.querySelector("#inputCity");
   console.log(cityElement.value);
   let city = cityElement.value;
-  let apiKey = "eba4088b0f27c5989c520fcbf6292268";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiKey = "7t4511aeb08oa9c81f0a54cd96843e2c";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
+
+function showWeeklyForecast(response) {
+  console.log(response.data);
+}
+
+function getLonLan(event) {
+  event.preventDefault();
+  let apiKey2 = "7t4511aeb08oa9c81f0a54cd96843e2c";
+  let apiUrl2 = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey2}&units=metric`;
+  axios.get(apiUrl2).then(showWeeklyForecast);
+}
+
+let lat = null;
+let lon = null;
+
+getLonLan();
 
 let form = document.querySelector("#search");
 form.addEventListener("click", defineCity);
