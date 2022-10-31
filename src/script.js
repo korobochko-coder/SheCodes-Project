@@ -14,8 +14,7 @@ function showTemperature(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute("src", iconID);
   celsiusTemperature = response.data.temperature.current;
-  lon = response.data.coordinates.longitude;
-  lat = response.data.coordinates.latitude;
+  getLonLat(response.data.coordinates);
 }
 
 function defineCity(event) {
@@ -28,24 +27,19 @@ function defineCity(event) {
   axios.get(apiUrl).then(showTemperature);
 }
 
-function showWeeklyForecast(response) {
+let form = document.querySelector("#search");
+form.addEventListener("click", defineCity);
+
+function showForecast(response) {
   console.log(response.data);
 }
 
-function getLonLan(event) {
-  event.preventDefault();
-  let apiKey2 = "7t4511aeb08oa9c81f0a54cd96843e2c";
-  let apiUrl2 = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey2}&units=metric`;
-  axios.get(apiUrl2).then(showWeeklyForecast);
+function getLonLat(coordinates) {
+  console.log(coordinates);
+  let key = "7t4511aeb08oa9c81f0a54cd96843e2c";
+  let apiUrl2 = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${key}&units=metric`;
+  axios.get(apiUrl2).then(showForecast);
 }
-
-let lat = null;
-let lon = null;
-
-getLonLan();
-
-let form = document.querySelector("#search");
-form.addEventListener("click", defineCity);
 
 function showFahrenheitTemperature(event) {
   event.preventDefault();
@@ -90,16 +84,3 @@ let min = padTo2Digits(now.getMinutes());
 
 let dt = document.querySelector("#date");
 dt.innerHTML = `${day} ${hour} : ${min}`;
-
-function handlePosition(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let apiKey = "eba4088b0f27c5989c520fcbf6292268";
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  axios.get(url).then(showTemperature);
-}
-
-navigator.geolocation.getCurrentPosition(handlePosition);
-
-let element = document.querySelector("#identifyLocation");
-element.addEventListener("click", handlePosition);
