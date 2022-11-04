@@ -25,6 +25,33 @@ let latitude = null;
 function showForecast(response) {
   let forecast = response.data.daily;
   console.log(forecast);
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="col-4">
+      <img
+        src = "${forecastDay.condition.icon_url}" width=50px
+      />
+    </div>
+    <div class="col-4">
+      ${formatDay(forecastDay.time)}
+    </div>
+    <div class="col-4" id="forecast-temperature">
+      ${Math.round(forecastDay.temperature.maximum)} <span>°C</span>
+    </div>
+  `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function getLonLat() {
   let key = "7t4511aeb08oa9c81f0a54cd96843e2c";
   let apiUrl2 = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${key}`;
