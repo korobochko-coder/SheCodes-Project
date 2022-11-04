@@ -14,7 +14,21 @@ function showTemperature(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute("src", iconID);
   celsiusTemperature = response.data.temperature.current;
-  getLonLat(response.data.coordinates);
+  latitude = response.data.coordinates.latitude;
+  longitude = response.data.coordinates.longitude;
+  getLonLat();
+}
+
+let longitude = null;
+let latitude = null;
+
+function showForecast(response) {
+  let forecast = response.data.daily;
+  console.log(forecast);
+function getLonLat() {
+  let key = "7t4511aeb08oa9c81f0a54cd96843e2c";
+  let apiUrl2 = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${key}`;
+  axios.get(apiUrl2).then(showForecast);
 }
 
 function defineCity(event) {
@@ -28,18 +42,7 @@ function defineCity(event) {
 }
 
 let form = document.querySelector("#search");
-form.addEventListener("click", defineCity);
-
-function showForecast(response) {
-  console.log(response.data);
-}
-
-function getLonLat(coordinates) {
-  console.log(coordinates);
-  let key = "7t4511aeb08oa9c81f0a54cd96843e2c";
-  let apiUrl2 = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${key}&units=metric`;
-  axios.get(apiUrl2).then(showForecast);
-}
+form.addEventListener("click", defineCity, getLonLat);
 
 function showFahrenheitTemperature(event) {
   event.preventDefault();
