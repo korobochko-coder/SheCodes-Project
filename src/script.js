@@ -3,7 +3,7 @@ function showTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   let cityElement = document.querySelector("#location");
-  cityElement.innerHTML = response.data.city;
+  cityElement.innerHTML = `📍 ${response.data.city}`;
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = response.data.condition.description;
   let humidityElement = document.querySelector("#humidity");

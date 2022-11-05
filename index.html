@@ -43,7 +43,7 @@
               <div id="descriptionContainer">
                 <img
                   id="icon"
-                  src="http://openweathermap.org/img/wn/10d@2x.png"
+                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
                 />
                 <br />
                 <span id="description">Sunny</span>
@@ -57,8 +57,8 @@
         </div>  
         <div class="col-6">
               <ul class="placeAndTime">
-                <li class="dateContainer">Last updated: <span id="date">Friday 12:00</span></li>
-                <li id="location">Paris</li>
+                <li class="dateContainer"><span id="date"></span></li>
+                <li id="location">📍 Kyiv</li>
               </ul>
             </div> 
             <div class="col-3">
@@ -76,6 +76,46 @@
         </div>
         <div class="week">
           <div class="container text-center" id="forecast">
+            <div class="row">
+            <div class="col-4">
+              <ul class="visual">
+              <li><img
+        src = "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" width=50px
+      /><li/>
+                <li><img
+        src = "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png" width=50px
+      /><li/>
+                  <li><img
+        src = "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/shower-rain-day.png" width=50px
+      /><li/>
+                    <li><img
+        src = "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/thunderstorm-day.png" width=50px
+      /><li/>
+                    <li><img
+        src = "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/mist-day.png" width=50px
+      /><li/>
+                    <ul/>
+      
+    </div>
+    <div class="col-4">
+     <ul class="day">
+                  <li>Monday<li/>
+                    <li>Tuesday<li/>
+                      <li>Wednesday<li/>
+                        <li>Thurthday<li/>
+                          <li>Friday<li/>
+                            <ul/>
+    </div>
+    <div class="col-4" id="forecast-temperature">
+      <ul class="gradusy">
+                  <li>29°<li/>
+                    <li>25°<li/>
+                      <li>23°<li/>
+                       <li>28°<li/>
+                        <li>29°<li/>
+                          <ul/>
+    </div>
+    </div>
 </div>
 </div>
      <p class="creator">

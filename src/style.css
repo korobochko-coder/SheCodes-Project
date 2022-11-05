@@ -15,18 +15,15 @@
 }
 
 #inputCity {
-  margin-bottom: 40px;
-  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 50px;
 }
 
 #search {
-  margin-bottom: 40px;
-  margin-left: 30px;
-}
-
-#identifyLocation {
-  margin-bottom: 40px;
-  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 50px;
 }
 
 #descriptionContainer {
@@ -89,6 +86,11 @@
   font-weight: 600;
 }
 
+#location {
+  font-size: 30px;
+  font-weight: 500;
+}
+
 .detailsContainer {
   list-style: none;
   width: 150px;
@@ -102,7 +104,7 @@
 
 .detailsInput {
   position: relative;
-  top: 50px;
+  top: 30px;
   left: -10px;
 }
 
@@ -112,10 +114,21 @@
 
 .week {
   background-color: #42a5f5;
-  margin: 20px;
+  display: block;
+  margin: 0 auto;
   padding: 0;
-  position: relative;
   max-width: 500px;
   border-radius: 10%;
-  left: -20px;
+}
+
+.day,
+.gradusy,
+.visual {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  line-height: 50px;
 }
